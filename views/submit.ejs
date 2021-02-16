@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <form action='/submit' method='POST'>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name='name' required>
+
+        <label for="grade">Grade:</label>
+        <input type="number" id="grade" name='grade' required>
+
+        <label for="section">Section:</label>
+        <input type='text' id="section" name='section' required></textarea>
+        <button>Submit</button>
+    </form>
+    
+</body>
+</html>

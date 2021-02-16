@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <% if (users.length > 0) { %>
+        <% users.forEach(user => { %>
+            <h3 class="name"><%= user.name %></h3>
+            <p class="grade"><%= user.grade %></p>
+            <p class="section"><%= user.section %></p>
+        <% }) %>
+    <% } else { %>
+        <p>No users available</p>
+    <% } %>
+    
+</body>
+</html>
