@@ -9,6 +9,7 @@
             <p class="grade"><%= user.grade %></p>
             <p class="section"><%= user.section %></p>
             <button class="delete" data-doc="<%= user._id %>">DELETE</button>
+            <button class="update" data-doc="<%= user._id %>">UPDATE</button>
         <% }) %>
     <% } else { %>
         <p>No users available</p>
@@ -16,8 +17,8 @@
 
     <script>
         const buttons = document.querySelectorAll("button.delete"); 
+        const updateButtons = document.querySelectorAll("button.update")
           
-
         buttons.forEach((button) => {
             button.addEventListener('click', () => {
                 fetch(`/delete/${button.dataset.doc}`, { 
@@ -25,6 +26,12 @@
                 })
                 .then(() => location.reload())
                 .catch(err => console.log(err))
+            })
+        })
+
+        updateButtons.forEach(upButton => {
+            upButton.addEventListener('click', () => {
+                location.href = `/update/${upButton.dataset.doc}`
             })
         })
     </script>

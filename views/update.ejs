@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <form action="<%= `/update/${user._id}?_method=PUT` %>" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name='name' value="<%= user.name %>" required>
+
+        <label for="grade">Grade:</label>
+        <input type="number" id="grade" name='grade' value="<%= user.grade %>" required>
+
+        <label for="section">Section:</label>
+        <input type='text' id="section" name='section' value="<%= user.section %>" required></textarea>
+        <button class="update">UPDATE USER</button>
+    </form>
+    
+</body>
+</html>
