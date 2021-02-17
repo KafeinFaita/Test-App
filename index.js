@@ -20,14 +20,21 @@ app.set('view engine','ejs')
 app.get('/', (req, res) => {
     User.find().sort({ createdAt: -1 })
         .then(result => {
-            console.log(result)
             res.render('index', { title: 'All Users', users: result })
+            console.log(result)
         })
         .catch(err => console.log(err))
 })
 
 app.get('/submit', (req, res) => {
     res.render('submit', { title: "Submit User" })
+})
+
+app.delete('/delete/:id', (req, res) => {
+    User.findByIdAndDelete(req.params.id)
+    .then(() => res.send('Deleted'))
+    .catch(err => console.log(err))
+    console.log(req)
 })
 
 app.post('/submit', (req, res) => {
@@ -40,4 +47,5 @@ app.post('/submit', (req, res) => {
         .catch(err => console.log(err))
     
 })
+
 

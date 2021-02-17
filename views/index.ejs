@@ -8,10 +8,26 @@
             <h3 class="name"><%= user.name %></h3>
             <p class="grade"><%= user.grade %></p>
             <p class="section"><%= user.section %></p>
+            <button class="delete" data-doc="<%= user._id %>">DELETE</button>
         <% }) %>
     <% } else { %>
         <p>No users available</p>
     <% } %>
+
+    <script>
+        const buttons = document.querySelectorAll("button.delete"); 
+          
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                fetch(`/delete/${button.dataset.doc}`, { 
+                    method: 'DELETE',
+                })
+                .then(() => location.reload())
+                .catch(err => console.log(err))
+            })
+        })
+    </script>
     
 </body>
 </html>
