@@ -67,3 +67,5 @@ app.put('/update/:id', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(err => console.log(err))    
 })
+
+console.log('hello')
