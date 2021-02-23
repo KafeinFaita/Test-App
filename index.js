@@ -9,9 +9,10 @@ const app = express()
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
 
 
-const dbURI = "mongodb+srv://kafein:kafeinfaita@cluster0.3xefo.mongodb.net/test-db?retryWrites=true&w=majority"
+const dbURI = "mongodb+srv://kafein:kafeinfaita@cluster0.3xefo.mongodb.net/test-db?retryWrites=true&w=majority" || "mongodb://localhost:27017/test-db"
 
 const PORT = process.env.PORT || 3000;
 
